@@ -52,7 +52,6 @@ class CustomFrameLayout @JvmOverloads constructor(
                 isScrollingVertical(event.y) -> {
                     isScrollingY = true
                 }
-                // Only intercept here
                 isMovingLeft(event.x) -> {
                     isScrollingLeft = true
                     firstX = event.x.toInt()
@@ -83,11 +82,13 @@ class CustomFrameLayout @JvmOverloads constructor(
         }
         else if (movement == MotionEvent.ACTION_UP) {
             if (needReturnToPrev()) {
-                Log.d("RETURN", "!!")
                 returnToPrev()
             } else {
                 getChildAt(1).animate()
                         .translationX(0f)
+                        .withEndAction {
+                            getChildAt(0).alpha = 0f
+                        }
                         .start()
             }
         }
@@ -95,7 +96,10 @@ class CustomFrameLayout @JvmOverloads constructor(
     }
 
     private fun returnToPrev() {
-        //mVelocityTracker.recycle()
+        getChildAt(0).animate()
+                .alpha(0f)
+                .start()
+
         getChildAt(1).animate()
                 .translationX((halfScreen * 2).toFloat())
                 .withEndAction({
@@ -107,17 +111,16 @@ class CustomFrameLayout @JvmOverloads constructor(
     private fun fadeBackground(event: MotionEvent) {
         //  interpolate transparency from 65% - 5%
         //  base - 20 * ratio
-        val base = 255 * .65f
-        val interpolateRange = 60
+        val base = 255 * .75f
+        val interpolateRange = 50
         val ratio = event.x / (halfScreen * 1.4f)
-        val alpha = base - interpolateRange * ratio
-
-        getChildAt(0).setBackgroundColor(Color.argb(alpha.toInt(), 0, 0, 0))
+        val alpha = (base - interpolateRange * ratio) / 255f
+        getChildAt(0).alpha = alpha
     }
 
     private fun translateLeft(event: MotionEvent) {
         mDis += (event.x - firstX).toInt()
-        this.getChildAt(1).translationX = mDis.toFloat()
+        this.getChildAt(1).translationX = Math.max(0f, mDis.toFloat())
     }
 
     private fun needReturnToPrev(): Boolean = isFlingDetected() || isSlideAcrossMiddle()
