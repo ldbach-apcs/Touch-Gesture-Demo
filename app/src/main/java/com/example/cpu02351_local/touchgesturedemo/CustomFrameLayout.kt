@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.support.v4.math.MathUtils
+import android.support.v4.widget.NestedScrollView
 import android.util.AttributeSet
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.view.View
@@ -63,10 +65,6 @@ class CustomFrameLayout @JvmOverloads constructor(
         mScrollContainer = findViewById(R.id.scrollContainer)
     }
 
-    override fun dispatchNestedScroll(dxConsumed: Int, dyConsumed: Int, dxUnconsumed: Int, dyUnconsumed: Int, offsetInWindow: IntArray?): Boolean {
-        return super.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow)
-    }
-
     override fun onInterceptTouchEvent(event: MotionEvent?): Boolean {
         val movement = event!!.actionMasked
         mVelocityTracker.addMovement(event)
@@ -78,8 +76,36 @@ class CustomFrameLayout @JvmOverloads constructor(
             }
             MotionEvent.ACTION_MOVE -> {
                 mDirection = getMovingDirection(event)
-                if (mDirection != DIRECTION_UNSPECIFIED) {
-                    mScrollContainer.parent.requestDisallowInterceptTouchEvent(false)
+                var shouldIntercept = true
+                when (mDirection) {
+                    DIRECTION_RIGHT -> {
+                        mMaxX = (halfScreenWidth * 2).toFloat()
+                        mMinX = 0f
+                        mMinY = 0f
+                        mMaxY = 0f
+                    }
+                    DIRECTION_LEFT -> {
+                        mMaxX = 0f
+                        mMinX = (-halfScreenWidth * 2).toFloat()
+                        mMinY = 0f
+                        mMaxY = 0f
+                    }
+                    DIRECTION_UP -> {
+                        mMaxX = 0f
+                        mMinX = 0f
+                        mMinY = (-halfScreenHeight * 2).toFloat()
+                        mMaxY = 0f
+                    }
+                    DIRECTION_DOWN -> {
+                        mMaxX = 0f
+                        mMinX = 0f
+                        mMinY = 0f
+                        mMaxY = (halfScreenHeight * 2).toFloat()
+                    }
+                    DIRECTION_UNSPECIFIED -> shouldIntercept = false
+                }
+
+                if (shouldIntercept) {
                     downX = event.rawX.toInt()
                     downY = event.rawY.toInt()
                     return true
@@ -93,10 +119,10 @@ class CustomFrameLayout @JvmOverloads constructor(
         val difX = event.rawX - downX
         val difY = event.rawY - downY
         return when {
-            difX > thresholdX && !mScrollContainer.canScrollHorizontally(-1) -> DIRECTION_RIGHT
-            difX < -thresholdX && !mScrollContainer.canScrollHorizontally(1) -> DIRECTION_LEFT
-            difY > thresholdY && !mScrollContainer.canScrollVertically(-1) -> DIRECTION_DOWN
-            difY < -thresholdY && !mScrollContainer.canScrollVertically(1) -> DIRECTION_UP
+            difX > thresholdX -> DIRECTION_RIGHT
+            difX < -thresholdX -> DIRECTION_LEFT
+            difY > thresholdY -> DIRECTION_DOWN
+            difY < -thresholdY -> DIRECTION_UP
             else -> DIRECTION_UNSPECIFIED
         }
     }
@@ -104,46 +130,43 @@ class CustomFrameLayout @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         val movement = event!!.actionMasked
         mVelocityTracker.addMovement(event)
-
         if (movement == MotionEvent.ACTION_MOVE) {
+            var shouldTranslate = true
             when (mDirection) {
                 DIRECTION_RIGHT -> {
-                    mMaxX = (halfScreenWidth * 2).toFloat()
-                    mMinX = 0f
-                    mMinY = 0f
-                    mMaxY = 0f
+                    if (mScrollContainer.canScrollHorizontally(1)) {
+                        mScrollContainer.scrollBy (downX - event.rawX.toInt(), 0)
+                        shouldTranslate = false
+                    }
                 }
                 DIRECTION_LEFT -> {
-                    mMaxX = 0f
-                    mMinX = (-halfScreenWidth * 2).toFloat()
-                    mMinY = 0f
-                    mMaxY = 0f
+                    if (mScrollContainer.canScrollHorizontally(-1)) {
+                        mScrollContainer.scrollBy (downX - event.rawX.toInt(), 0)
+                        shouldTranslate = false
+                    }
                 }
                 DIRECTION_UP -> {
-                    mMaxX = 0f
-                    mMinX = 0f
-                    mMinY = (-halfScreenHeight * 2).toFloat()
-                    mMaxY = 0f
+                    if (mScrollContainer.canScrollVertically(1)) {
+                        mScrollContainer.scrollBy(0, downY - event.rawY.toInt())
+                        // mChildView.invalidate()
+                        shouldTranslate = false
+                    }
                 }
                 DIRECTION_DOWN -> {
-                    mMaxX = 0f
-                    mMinX = 0f
-                    mMinY = 0f
-                    mMaxY = (halfScreenHeight * 2).toFloat()
+                    if (mScrollContainer.canScrollVertically(-1)) {
+                        mScrollContainer.scrollBy (0,  downY - event.rawY.toInt())
+                        shouldTranslate = false
+                    }
                 }
             }
-            /*
-            if (stopInnerScroll) {
+
+            if (shouldTranslate) {
+                fadeBackground(event)
+                translateChild(event)
+            } else {
                 downX = event.rawX.toInt()
                 downY = event.rawY.toInt()
-
-            } else {
-                mChildView.scrollBy(event.rawX.toInt() - downX, event.rawY.toInt() - downY)
             }
-            */
-
-            fadeBackground(event)
-            translateChild(event)
         }
 
 
