@@ -20,5 +20,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.from_right_in, 0)
         }
+
+        switch_activity2.setOnClickListener {
+            // val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            val intent = Intent(this@MainActivity, Main3Activity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.from_right_in, 0)
+        }
     }
 }

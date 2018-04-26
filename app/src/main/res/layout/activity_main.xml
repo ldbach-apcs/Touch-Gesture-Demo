@@ -11,9 +11,18 @@
         android:layout_height="?attr/actionBarSize" />
 
     <Button
+        android:text="recyclerView"
         android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/switch_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:text="scroll view"
+        android:layout_marginTop="100dp"
+        android:id="@+id/switch_activity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 
 </FrameLayout>

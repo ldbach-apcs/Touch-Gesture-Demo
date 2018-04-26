@@ -212,28 +212,28 @@ class CustomFrameLayout @JvmOverloads constructor(
             DIRECTION_LEFT -> mChildView.animate()
                     .translationX(mMinX)
                     .withEndAction {
-                        (context as Main2Activity).finishNoAnim()
+                        (context as Activity).finish()
                     }
                     .start()
 
             DIRECTION_RIGHT -> mChildView.animate()
                     .translationX(mMaxX)
                     .withEndAction {
-                        (context as Main2Activity).finishNoAnim()
+                        (context as Activity).finish()
                     }
                     .start()
 
             DIRECTION_DOWN -> mChildView.animate().
                     translationY(mMaxY)
                     .withEndAction {
-                        (context as Main2Activity).finishNoAnim()
+                        (context as Activity).finish()
                     }
                     .start()
 
             DIRECTION_UP -> mChildView.animate()
                     .translationY(mMinY)
                     .withEndAction {
-                        (context as Main2Activity).finishNoAnim()
+                        (context as Activity).finish()
                     }
                     .start()
         }
