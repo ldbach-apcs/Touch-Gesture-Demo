@@ -2,12 +2,9 @@ package com.example.cpu02351_local.touchgesturedemo
 
 import android.app.Activity
 import android.content.Context
-import android.os.Build
 import android.support.v4.math.MathUtils
-import android.support.v4.widget.NestedScrollView
 import android.util.AttributeSet
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.view.View
@@ -17,28 +14,6 @@ import android.widget.FrameLayout
 class CustomFrameLayout @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-    private var vc = ViewConfiguration.get(context)!!
-    private var mTouchSlop = 0
-    var downX = -1
-    var downY = -1
-    var thresholdY = -1
-    var thresholdX = -1
-    private var halfScreenWidth = -1
-    var halfScreenHeight= -1
-    var mDisX = 0
-    var mDisY = 0
-    private var mDirection: Int = DIRECTION_UNSPECIFIED
-    private var mVelocityTracker = VelocityTracker.obtain()!!
-    private var flingThreshold = -1
-    private lateinit var bg: View
-    private lateinit var mChildView: View
-    private lateinit var mScrollContainer: View
-
-    private var mMaxX = 0f
-    private var mMinX = 0f
-    private var mMaxY = 0f
-    private var mMinY = 0f
-
     companion object {
         const val DIRECTION_UP = 0
         const val DIRECTION_DOWN = 1
@@ -47,9 +22,32 @@ class CustomFrameLayout @JvmOverloads constructor(
         const val DIRECTION_UNSPECIFIED = 4
     }
 
+    private var vc = ViewConfiguration.get(context)!!
+    private var mTouchSlop = 0
+    private var downX = -1
+    private var downY = -1
+    private var thresholdY = -1
+    private var thresholdX = -1
+    private var halfScreenWidth = -1
+    private var halfScreenHeight= -1
+    private var mDisX = 0
+    private var mDisY = 0
+    private var mDirection: Int = DIRECTION_UNSPECIFIED
+    private var mVelocityTracker = VelocityTracker.obtain()!!
+    private var flingThreshold = -1
+    private lateinit var bg: View
+    private lateinit var mChildView: View
+    private lateinit var mScrollContainer: View
+    private var mMaxX = 0f
+    private var mMinX = 0f
+    private var mMaxY = 0f
+    private var mMinY = 0f
+    private val base = 255 * .75f
+    private val interpolateRange = 50
+
     init {
         this.mTouchSlop = vc.scaledTouchSlop
-        flingThreshold = (vc.scaledMinimumFlingVelocity + vc.scaledMaximumFlingVelocity) / 10
+        flingThreshold = (vc.scaledMinimumFlingVelocity + vc.scaledMaximumFlingVelocity) / 6
         thresholdY = mTouchSlop
         thresholdX = mTouchSlop
         val displayMetrics = DisplayMetrics()
@@ -75,7 +73,7 @@ class CustomFrameLayout @JvmOverloads constructor(
                 downY = event.rawY.toInt()
             }
             MotionEvent.ACTION_MOVE -> {
-                mDirection = getMovingDirection(event)
+                mDirection = getInitialScrollingDirection(event)
                 var shouldIntercept = true
                 when (mDirection) {
                     DIRECTION_RIGHT, DIRECTION_LEFT -> {
@@ -103,7 +101,7 @@ class CustomFrameLayout @JvmOverloads constructor(
         return super.onInterceptTouchEvent(event)
     }
 
-    private fun getMovingDirection(event: MotionEvent): Int {
+    private fun getInitialScrollingDirection(event: MotionEvent): Int {
         val difX = event.rawX - downX
         val difY = event.rawY - downY
         return when {
@@ -122,7 +120,7 @@ class CustomFrameLayout @JvmOverloads constructor(
         mVelocityTracker.addMovement(event)
         if (movement == MotionEvent.ACTION_MOVE) {
             var shouldTranslate = true
-            changeDirectionIfNeeded(rawX, rawY)
+            changeScrollingDirectionIfNeeded(rawX, rawY)
             when (mDirection) {
                 DIRECTION_RIGHT -> {
                     if (mScrollContainer.canScrollHorizontally(1)) {
@@ -151,26 +149,25 @@ class CustomFrameLayout @JvmOverloads constructor(
             }
 
             if (shouldTranslate) {
-                fadeBackground(event)
-                translateChild(event)
+                fadeBackgroundView(event)
+                translateChildView(event)
             } else {
                 downX = rawX
                 downY = rawY
             }
         }
 
-
         if (movement == MotionEvent.ACTION_UP) {
-            if (needReturnToPrev()) {
+            if (needEndActivity()) {
                 smoothEndActivity()
             } else {
-                resetState()
+                resetChildViewPosition()
             }
         }
         return super.onTouchEvent(event)
     }
 
-    private fun changeDirectionIfNeeded(newX: Int, newY: Int) {
+    private fun changeScrollingDirectionIfNeeded(newX: Int, newY: Int) {
         when (mDirection) {
             DIRECTION_UP -> {
                 if (newY > downY) mDirection = DIRECTION_DOWN
@@ -187,7 +184,7 @@ class CustomFrameLayout @JvmOverloads constructor(
         }
     }
 
-    private fun resetState() {
+    private fun resetChildViewPosition() {
         mChildView.animate()
                 .translationX(0f)
                 .translationY(0f)
@@ -197,16 +194,14 @@ class CustomFrameLayout @JvmOverloads constructor(
                 .start()
     }
 
-    private fun translateChild(event: MotionEvent) {
+    private fun translateChildView(event: MotionEvent) {
         mDisX = (event.rawX - downX).toInt()
         mDisY = (event.rawY - downY).toInt()
-
         mChildView.apply {
             translationX = MathUtils.clamp(mDisX.toFloat(), mMinX, mMaxX)
             translationY = MathUtils.clamp(mDisY.toFloat(), mMinY, mMaxY)
         }
     }
-
 
     private fun smoothEndActivity() {
         bg.animate()
@@ -244,9 +239,7 @@ class CustomFrameLayout @JvmOverloads constructor(
         }
     }
 
-    private val base = 255 * .75f
-    private val interpolateRange = 50
-    private fun fadeBackground(event: MotionEvent) {
+    private fun fadeBackgroundView(event: MotionEvent) {
         //  interpolate transparency from 65% - 5%
         //  base - 20 * ratio
         val ratio = event.x / (halfScreenWidth * 1.4f)
@@ -254,8 +247,7 @@ class CustomFrameLayout @JvmOverloads constructor(
         bg.alpha = alpha
     }
 
-
-    private fun needReturnToPrev(): Boolean = isFlingDetected() || isSlideAcrossMiddle()
+    private fun needEndActivity(): Boolean = isFlingDetected() || isSlideAcrossMiddle()
 
     private fun isSlideAcrossMiddle(): Boolean = when (mDirection) {
         DIRECTION_LEFT -> mDisX <= -halfScreenWidth
