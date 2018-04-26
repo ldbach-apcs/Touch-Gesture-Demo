@@ -78,28 +78,16 @@ class CustomFrameLayout @JvmOverloads constructor(
                 mDirection = getMovingDirection(event)
                 var shouldIntercept = true
                 when (mDirection) {
-                    DIRECTION_RIGHT -> {
+                    DIRECTION_RIGHT, DIRECTION_LEFT -> {
                         mMaxX = (halfScreenWidth * 2).toFloat()
-                        mMinX = 0f
-                        mMinY = 0f
-                        mMaxY = 0f
-                    }
-                    DIRECTION_LEFT -> {
-                        mMaxX = 0f
                         mMinX = (-halfScreenWidth * 2).toFloat()
                         mMinY = 0f
                         mMaxY = 0f
                     }
-                    DIRECTION_UP -> {
+                    DIRECTION_UP, DIRECTION_DOWN -> {
                         mMaxX = 0f
                         mMinX = 0f
                         mMinY = (-halfScreenHeight * 2).toFloat()
-                        mMaxY = 0f
-                    }
-                    DIRECTION_DOWN -> {
-                        mMaxX = 0f
-                        mMinX = 0f
-                        mMinY = 0f
                         mMaxY = (halfScreenHeight * 2).toFloat()
                     }
                     DIRECTION_UNSPECIFIED -> shouldIntercept = false
@@ -129,32 +117,34 @@ class CustomFrameLayout @JvmOverloads constructor(
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         val movement = event!!.actionMasked
+        val rawX = event.rawX.toInt()
+        val rawY = event.rawY.toInt()
         mVelocityTracker.addMovement(event)
         if (movement == MotionEvent.ACTION_MOVE) {
             var shouldTranslate = true
+            changeDirectionIfNeeded(rawX, rawY)
             when (mDirection) {
                 DIRECTION_RIGHT -> {
                     if (mScrollContainer.canScrollHorizontally(1)) {
-                        mScrollContainer.scrollBy (downX - event.rawX.toInt(), 0)
+                        mScrollContainer.scrollBy (downX - rawX, 0)
                         shouldTranslate = false
                     }
                 }
                 DIRECTION_LEFT -> {
                     if (mScrollContainer.canScrollHorizontally(-1)) {
-                        mScrollContainer.scrollBy (downX - event.rawX.toInt(), 0)
+                        mScrollContainer.scrollBy (downX - rawX, 0)
                         shouldTranslate = false
                     }
                 }
                 DIRECTION_UP -> {
                     if (mScrollContainer.canScrollVertically(1)) {
-                        mScrollContainer.scrollBy(0, downY - event.rawY.toInt())
-                        // mChildView.invalidate()
+                        mScrollContainer.scrollBy(0, downY - rawY)
                         shouldTranslate = false
                     }
                 }
                 DIRECTION_DOWN -> {
                     if (mScrollContainer.canScrollVertically(-1)) {
-                        mScrollContainer.scrollBy (0,  downY - event.rawY.toInt())
+                        mScrollContainer.scrollBy (0,  downY - rawY)
                         shouldTranslate = false
                     }
                 }
@@ -164,8 +154,8 @@ class CustomFrameLayout @JvmOverloads constructor(
                 fadeBackground(event)
                 translateChild(event)
             } else {
-                downX = event.rawX.toInt()
-                downY = event.rawY.toInt()
+                downX = rawX
+                downY = rawY
             }
         }
 
@@ -178,6 +168,23 @@ class CustomFrameLayout @JvmOverloads constructor(
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    private fun changeDirectionIfNeeded(newX: Int, newY: Int) {
+        when (mDirection) {
+            DIRECTION_UP -> {
+                if (newY > downY) mDirection = DIRECTION_DOWN
+            }
+            DIRECTION_DOWN -> {
+                if (newY < downY) mDirection = DIRECTION_UP
+            }
+            DIRECTION_LEFT -> {
+                if (newX > downX) mDirection = DIRECTION_LEFT
+            }
+            DIRECTION_RIGHT -> {
+                if (newX < downX) mDirection = DIRECTION_RIGHT
+            }
+        }
     }
 
     private fun resetState() {
