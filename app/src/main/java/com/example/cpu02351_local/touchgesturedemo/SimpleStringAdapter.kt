@@ -5,10 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 class SimpleStringAdapter(private val data: ArrayList<String>) : RecyclerView.Adapter<SimpleStringAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_simple_layout, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_simple_layout, parent, false)
+        v.setOnClickListener {
+            Toast.makeText(parent.context, "Click not blocked", Toast.LENGTH_SHORT).show()
+        }
+        return ViewHolder(v)
+    }
 
     override fun getItemCount(): Int = data.size
 
@@ -18,3 +24,4 @@ class SimpleStringAdapter(private val data: ArrayList<String>) : RecyclerView.Ad
 
     class ViewHolder(val v: View) : RecyclerView.ViewHolder(v)
 }
+

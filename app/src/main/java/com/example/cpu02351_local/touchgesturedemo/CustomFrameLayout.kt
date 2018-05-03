@@ -121,11 +121,12 @@ class CustomFrameLayout @JvmOverloads constructor(
         if (movement == MotionEvent.ACTION_MOVE) {
             var shouldTranslate = true
             changeScrollingDirectionIfNeeded(rawX, rawY)
+
             when (mDirection) {
                 DIRECTION_RIGHT -> {
                     if (mScrollContainer.canScrollHorizontally(1)) {
-                        mScrollContainer.scrollBy (downX - rawX, 0)
-                        shouldTranslate = false
+                            mScrollContainer.scrollBy (downX - rawX, 0)
+                            shouldTranslate = false
                     }
                 }
                 DIRECTION_LEFT -> {
@@ -149,8 +150,8 @@ class CustomFrameLayout @JvmOverloads constructor(
             }
 
             if (shouldTranslate) {
-                fadeBackgroundView(event)
-                translateChildView(event)
+                    fadeBackgroundView(event)
+                    translateChildView(event)
             } else {
                 downX = rawX
                 downY = rawY

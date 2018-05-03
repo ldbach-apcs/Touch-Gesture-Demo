@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.ScrollView
 
 class Main2Activity : AppCompatActivity() {
 
@@ -24,8 +25,10 @@ class Main2Activity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val rv = findViewById<RecyclerView>(R.id.scrollContainer)
+        rv.setHasFixedSize(true)
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = SimpleStringAdapter(data)
+
     }
 
     override fun finish() {

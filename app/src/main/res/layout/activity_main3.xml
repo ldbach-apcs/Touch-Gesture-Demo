@@ -1,366 +1,1047 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.cpu02351_local.touchgesturedemo.CustomFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Main2Activity"
     >
 
-    <View
-        android:background="#000000"
+    <com.example.cpu02351_local.touchgesturedemo.OuterNestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:background="#894995"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
-
-        <ScrollView
+        <LinearLayout
             android:background="#FFFFFF"
-            android:id="@+id/scrollContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.example.cpu02351_local.touchgesturedemo.InnerNestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                android:layout_height="96dp">
 
-                <TextView
-                    android:text="Testing"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                </LinearLayout>
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            </com.example.cpu02351_local.touchgesturedemo.InnerNestedScrollView>
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
 
-                <TextView
-                    android:text="Testing"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:text="Testing"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:text="Testing"
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:id="@+id/displayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-                <TextView
-                    android:text="Testing"
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </ScrollView>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-    </LinearLayout>
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
 
-</com.example.cpu02351_local.touchgesturedemo.CustomFrameLayout>
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:id="@+id/displayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="96dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:text="test"
+                        android:background="#FF0000"
+                        android:id="@+id/displayText"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#FF00FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                    <TextView
+                        android:text="test"
+                        android:background="#00FF00"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+
+                    <TextView
+                        android:text="test"
+                        android:background="#0000FF"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp" />
+
+                </LinearLayout>
+
+
+            </android.support.v4.widget.NestedScrollView>
+
+        </LinearLayout>
+
+
+    </com.example.cpu02351_local.touchgesturedemo.OuterNestedScrollView>
+
+</android.support.constraint.ConstraintLayout>
